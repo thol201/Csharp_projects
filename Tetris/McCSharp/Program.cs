@@ -8,12 +8,12 @@ using System.Windows.Input;
 
 namespace Program
 {
-    class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
             Game_Menager menager= new Game_Menager();
-            menager.start();
+            menager.start() ;
            
            
 

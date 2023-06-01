@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Program
 {
-    internal class Figure
+    public class Figure
     {
         public byte code;
         public int size;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Program
 {
-    class Figure_long : Figure  
+    public class Figure_long : Figure  
     {
         public Figure_long():base()
         {

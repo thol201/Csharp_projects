@@ -13,28 +13,78 @@ using System.Windows;
 namespace Program
 {
 
-    class Game_Menager
+    public class Game_Menager
     {
         private static InputMenager? inputs;                // input manager handles inputs
-        public static System.Timers.Timer? UpdateTimer;     // main timer handles lowering figure
+        public  System.Timers.Timer? UpdateTimer;     // main timer handles lowering figure
         public int points;                              
-        public int status;                                  // statuses
-                                                            // 0 - game not started
-                                                            // 1 - Game running 
-                                                            // 2 - Game handling update
-                                                            // 3 - Game Over
-        bool disp;                                          // allow display if not displaying right now
+        public int status;                                  // Statuses
+        public int Status { get => status; set { status = value; } }                // 0 - game not started
+                                                                                    // 1 - Game running 
+                                                                                    // 2 - Game handling update
+                                                                                    // 3 - Game Over
+        public bool disp;                                                                  // allow display if not displaying right now
         public Map map;
         public Map_Printer printer;
         List<Figure> figures;
         List<Figure> allfigures;
         Figure? active;
+        public Figure? prev;
+        public bool locked=false;                               
         public bool trigger;                                // Figure is on the ground but still can move for a while
                                                             // IT'S NOT A BUG ITS A FEATURE
 
+        private bool? _console_present;
+        public bool console_present
+        {
+            get
+            {
+                if (_console_present == null)
+                {
+                    _console_present = true;
+                    try { int window_height = Console.WindowHeight; }
+                    catch { _console_present = false; }
+                }
+                return _console_present.Value;
+            }
+        }
+
+
+        public void set_function(string s,updater up)
+        {
+            switch (s)
+            {
+                case "Start": 
+                    {
+                        intro = up;
+                        break;
+                    }
+                case "Display":
+                    {
+                        displayer = up;
+                        break;
+                    }
+                case "Stop":
+                    {
+                        outro = up;
+                        break;
+                    }
+                case "Score":
+                    {
+                        _points = up;
+                        break;
+                    }
+            }
+        }
+        public delegate void updater();
+        updater displayer;
+        updater intro;
+        updater outro;
+        updater _points;
+
         public Game_Menager() {
             disp = true;
-            status = 0;
+            Status = 0;
             points = 0;
             inputs = new InputMenager(this);
             active = null;
@@ -44,6 +94,9 @@ namespace Program
             figures = new List<Figure>();
             allfigures = new List<Figure>();
             temporalfig = new List<Type>();
+            intro = displayIntro;
+            displayer = Displeyfunc;
+            outro = displayOutro;
             Type[]? types = Assembly.GetAssembly(typeof(Figure)).GetTypes();
             IEnumerable<Type> subclasses = types.Where(t => t.IsSubclassOf(typeof(Figure)));
             foreach (var tast in subclasses) { allfigures.Add((Figure)Activator.CreateInstance(tast)); }
@@ -60,8 +113,11 @@ namespace Program
             Console.WriteLine("To Rotate Right Press {0}", (char)inputs.Action_Key_Rotate_Right);
             Console.WriteLine("To Rotate Left Press {0}", (char)inputs.Action_Key_Rotate_Left);
             Console.WriteLine("Press Any Key Different Then Power Button To Start");
-            Console.ReadKey(true);
-
+            try
+            {
+                Console.ReadKey(true);
+            }
+            catch { }
         }
         public void displayOutro()
         {
@@ -72,43 +128,70 @@ namespace Program
 
         }
 
+
+        public void Reset()
+        {
+            map = new();
+            map.menager = this;
+            Random ran = new Random();
+            active = allfigures[ran.Next(0, allfigures.Count() - 1)];
+            prev = allfigures[ran.Next(0, allfigures.Count() - 1)];
+            active.x = 0;
+            active.y = ran.Next(0, map.mapy - 3);
+        }
         public void start()
         {
             map.menager = this;
             trigger = false;
-            status = 1;
-            displayIntro();
+            Status = 1;
+            //if(console_present)
+            intro();
             UpdateTimer = new System.Timers.Timer(1000);
             UpdateTimer.Elapsed += update;
-            UpdateTimer.AutoReset = true;
+            //UpdateTimer.AutoReset = true;
             UpdateTimer.Enabled = true;
             Random ran = new Random();
             active = allfigures[ran.Next(0, allfigures.Count() - 1)];
+            prev = allfigures[ran.Next(0, allfigures.Count() - 1)];
+            int r;
+            while (prev.GetType() == active.GetType())
+            {
+                r = ran.Next(0, allfigures.Count());
+                prev = allfigures[r];
+            }
             active.x = 0;
             active.y = ran.Next(0, map.mapy - 3);
-            inputs.start();
+            if (console_present)
+            inputs?.start();
+            int bol = 0;
+            bol = map.insert_figure(active, true);
+            display();
+
         }
 
         public void stop()
         {
-            status = 3;
+            Status = 3;
             UpdateTimer.Stop();
             UpdateTimer.Dispose();
-            displayOutro();
-            inputs.stop();
+            outro();
+            if (console_present)
+                inputs.stop();
         }
         public void Event(int x)
         {
             int bol=0;
-            if (status == 3)
+            if (Status == 3)
+                return;
+            if (x != 1 && locked)
                 return;
             switch (x) 
             {
                 case 1:   // end game event
-                    status = 3;
+                    Status = 3;
                     stop();
-                    string path= Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-                    path = path + "\\tertis.jpg";
+                    string path= Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
+                    path = path + "\\McCSharp\\tertis.jpg";
                     string argument = "/open, \"" + path + "\"";
                     try
                     {
@@ -117,33 +200,33 @@ namespace Program
                     catch (Exception ex) { Console.WriteLine(ex.Message); }
                     break;
                 case 2:   // rotate right event
-                    if (active == null || status == 2)
+                    if (active == null || Status == 2)
                         break;
-                    status = 2;
+                    Status = 2;
                     active.rotate(1);
                     map.clear();
                     if (map.get_instant_Collison(active) == 1)
                         active.rotate(0);
                     bol = map.insert_figure(active);
                     display();
-                    status = 1;
+                    Status = 1;
                     break;
                 case 3:    // rotate left event
-                    if (active == null || status == 2)
+                    if (active == null || Status == 2)
                         break;
-                    status = 2;
+                    Status = 2;
                     active.rotate(0);
                     map.clear();
                     if (map.get_instant_Collison(active) == 1)
                         active.rotate(1);
                     bol = map.insert_figure(active);
                     display();
-                    status = 1;
+                    Status = 1;
                     break;
                 case 4:    // move right event
-                    if (active == null || status == 2)
+                    if (active == null || Status == 2)
                         break;
-                    status = 2;
+                    Status = 2;
                     bol = map.get_Collision(active,1);
                     if (bol==1)
                     {
@@ -152,12 +235,12 @@ namespace Program
                         bol = map.insert_figure(active);
                         display();
                     }
-                    status = 1;
+                    Status = 1;
                     break;
                 case 5:    // move left event
-                    if (active == null || status == 2)
+                    if (active == null || Status == 2)
                         break;
-                    status = 2;
+                    Status = 2;
                     bol = map.get_Collision(active, 2);
                     if (bol == 1)
                     {
@@ -166,12 +249,12 @@ namespace Program
                         bol =map.insert_figure(active);
                         display();
                     }
-                    status = 1;
+                    Status = 1;
                     break;
                 case 6:    // move down event
-                    if (active == null || status == 2)
+                    if (active == null || Status == 2)
                         break;
-                    status = 2;
+                    Status = 2;
                     bol = map.get_Collision(active, 0);
                     if (bol == 1)
                     {
@@ -180,40 +263,45 @@ namespace Program
                         bol = map.insert_figure(active,true);
                         display();
                     }
-                    status = 1;
+                    Status = 1;
                     break;
                 case 7:
-                    if (active == null || status==2)
+                    if (active == null || Status==2)
                         break;
-                    status = 2;
+                    Status = 2;
                     while(map.get_Collision(active, 0)==1)
                         active.x++;
                     map.clear();
                     bol = map.insert_figure(active);
                     display();
-                    status = 1;
+                    Status = 1;
                     break;
             }
         }
 
         
-
+        public void Displeyfunc()
+        {
+            Console.Clear();
+            printer.print();
+        }
         void display()
         {
             if (disp != true)    // return if display is updating
                 return;
             disp = false;
-            Console.Clear();
-            printer.print() ;
+            displayer();
+            //UpdateTimer.Start();
             disp = true;
         }
 
-        public void update(Object source, ElapsedEventArgs e)
+        public async void update(Object source, ElapsedEventArgs e)
         {
-            Random ran = new Random();
-            if (status==2||status==3)
+            if (Status==2||Status==3)
                 return;
-            status = 2;
+            UpdateTimer.Stop();
+            Random ran = new Random();
+            Status = 2;
             map.clear();
             int bol = 0;
             bol = map.insert_figure(active, true);
@@ -225,8 +313,16 @@ namespace Program
                     points += 10 * multipler;
                     multipler++;
                 }
+                if(_points!=null)
+                _points();
                 active = null;
-                active = allfigures[ran.Next(0, allfigures.Count() - 1)];
+                active = prev;
+                int r;
+                while (prev.GetType() == active.GetType())
+                {
+                    r = ran.Next(0, allfigures.Count());
+                    prev = allfigures[r];
+                }
                 active.x = 0;
                 active.y = ran.Next(0, map.mapy-3);
                 if (map.get_instant_Collison(active) == 1)
@@ -234,9 +330,10 @@ namespace Program
                     Event(1);
                     return;
                 }
+                bol = map.insert_figure(active);
                 display();
             }
-            else if (bol == 2) { Console.WriteLine("AMEN"); stop(); }
+            else if (bol == 2) { stop(); }
             else if (bol == 3) { trigger = true; }
             else
             {
@@ -245,7 +342,8 @@ namespace Program
                 bol = map.insert_figure(active, true);
                 display();
             }
-            status = 1;
+            Status = 1;
+            UpdateTimer.Start();
         }
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Program
 {
-    class Map_Printer
+    public class Map_Printer
     {
         Map mapptr = null;
         public Map_Printer() { }

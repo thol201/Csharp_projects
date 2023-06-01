@@ -12,7 +12,7 @@ using System.Runtime;
 
 namespace Program
 {
-    class InputMenager
+    public class InputMenager
     {
         Game_Menager menager;
         Thread t;
@@ -44,7 +44,7 @@ namespace Program
         private void loop()
         {
             ConsoleKeyInfo cki;
-            while (menager.status!=3)
+            while (menager.Status!=3)
             {
                 cki = Console.ReadKey(true);
                 if ((cki.Key == ConsoleKey.Escape)) { menager.Event(1);}

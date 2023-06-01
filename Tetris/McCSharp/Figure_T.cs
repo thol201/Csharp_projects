@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Program
 {
-    class Figure_T : Figure
+    public class Figure_T : Figure
     {
         public Figure_T():base()
         {

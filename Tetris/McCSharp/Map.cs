@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Program
 {
-    internal class Map
+    public class Map
     {
         public int mapx;
         public int mapy;
@@ -75,13 +75,14 @@ namespace Program
                 case 2:   // colison left
                     for (int i = 0; i < fig.tab.GetLength(0); i++)
                         for (int k = 0; k < fig.tab.GetLength(1); k++)
-                            if (fig.tab[i,k]!=0)
+                            if (fig.tab[i, k] != 0)
                             {
                                 if (fig.y - 1 + k < 0 || ptr[fig.x + i, fig.y - 1 + k] != 0)
                                     return 0;
                                 break;
                             }
                     break;
+               
             }
             return 1;
         }
