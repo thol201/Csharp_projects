@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azidoazide_Azide", "Azidoazide_Azide\Azidoazide_Azide.csproj", "{1ADDF859-AD53-4D20-B634-AEB161D107D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dihydrogen_Monoxide", "Dihydrogen_Monoxide\Dihydrogen_Monoxide.csproj", "{0A17718F-C6C9-4234-A291-E08E21EB32ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1ADDF859-AD53-4D20-B634-AEB161D107D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ADDF859-AD53-4D20-B634-AEB161D107D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ADDF859-AD53-4D20-B634-AEB161D107D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ADDF859-AD53-4D20-B634-AEB161D107D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A17718F-C6C9-4234-A291-E08E21EB32ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A17718F-C6C9-4234-A291-E08E21EB32ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A17718F-C6C9-4234-A291-E08E21EB32ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A17718F-C6C9-4234-A291-E08E21EB32ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1F7A63C-59C2-4619-B296-40EAABFB9636}
+	EndGlobalSection
+EndGlobal

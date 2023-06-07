@@ -1,0 +1,7 @@
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Azidoazide_Azide\obj\Debug\net6.0-windows\Azidoazide_Azide.csproj.AssemblyReference.cache
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Azidoazide_Azide\obj\Debug\net6.0-windows\Azidoazide_Azide.Form1.resources
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Azidoazide_Azide\obj\Debug\net6.0-windows\Azidoazide_Azide.csproj.GenerateResource.cache
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Azidoazide_Azide\obj\Debug\net6.0-windows\Azidoazide_Azide.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Azidoazide_Azide\obj\Debug\net6.0-windows\Azidoazide_Azide.AssemblyInfoInputs.cache
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Azidoazide_Azide\obj\Debug\net6.0-windows\Azidoazide_Azide.AssemblyInfo.cs
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Azidoazide_Azide\obj\Debug\net6.0-windows\Azidoazide_Azide.csproj.CoreCompileInputs.cache

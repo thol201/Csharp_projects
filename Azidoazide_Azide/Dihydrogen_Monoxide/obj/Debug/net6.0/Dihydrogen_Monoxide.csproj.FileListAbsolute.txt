@@ -1,0 +1,15 @@
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.csproj.AssemblyReference.cache
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.AssemblyInfoInputs.cache
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.AssemblyInfo.cs
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.csproj.CoreCompileInputs.cache
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\bin\Debug\net6.0\Dihydrogen_Monoxide.exe
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\bin\Debug\net6.0\Dihydrogen_Monoxide.deps.json
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\bin\Debug\net6.0\Dihydrogen_Monoxide.runtimeconfig.json
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\bin\Debug\net6.0\Dihydrogen_Monoxide.dll
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\bin\Debug\net6.0\Dihydrogen_Monoxide.pdb
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.dll
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\refint\Dihydrogen_Monoxide.dll
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.pdb
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\Dihydrogen_Monoxide.genruntimeconfig.cache
+C:\Users\TH\source\repos\POB2\Azidoazide_Azide\Dihydrogen_Monoxide\obj\Debug\net6.0\ref\Dihydrogen_Monoxide.dll
