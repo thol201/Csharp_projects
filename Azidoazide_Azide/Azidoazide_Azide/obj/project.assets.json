@@ -27,23 +27,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TH\\.nuget\\packages\\": {},
+    "C:\\Users\\tymoh\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TH\\source\\repos\\POB2\\Azidoazide_Azide\\Azidoazide_Azide\\Azidoazide_Azide.csproj",
+      "projectUniqueName": "C:\\Users\\tymoh\\Desktop\\Azidoazide_Azide\\Azidoazide_Azide\\Azidoazide_Azide.csproj",
       "projectName": "Azidoazide_Azide",
-      "projectPath": "C:\\Users\\TH\\source\\repos\\POB2\\Azidoazide_Azide\\Azidoazide_Azide\\Azidoazide_Azide.csproj",
-      "packagesPath": "C:\\Users\\TH\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TH\\source\\repos\\POB2\\Azidoazide_Azide\\Azidoazide_Azide\\obj\\",
+      "projectPath": "C:\\Users\\tymoh\\Desktop\\Azidoazide_Azide\\Azidoazide_Azide\\Azidoazide_Azide.csproj",
+      "packagesPath": "C:\\Users\\tymoh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tymoh\\Desktop\\Azidoazide_Azide\\Azidoazide_Azide\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\TH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tymoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -52,15 +52,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\TH\\source\\repos\\POB2\\Azidoazide_Azide\\Dihydrogen_Monoxide\\Dihydrogen_Monoxide.csproj": {
-              "projectPath": "C:\\Users\\TH\\source\\repos\\POB2\\Azidoazide_Azide\\Dihydrogen_Monoxide\\Dihydrogen_Monoxide.csproj"
+            "C:\\Users\\tymoh\\Desktop\\Azidoazide_Azide\\Dihydrogen_Monoxide\\Dihydrogen_Monoxide.csproj": {
+              "projectPath": "C:\\Users\\tymoh\\Desktop\\Azidoazide_Azide\\Dihydrogen_Monoxide\\Dihydrogen_Monoxide.csproj"
             }
           }
         }
@@ -93,7 +92,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dihydrogen_Monoxide\Dihydrogen_Monoxide.csproj" />
+    <ProjectReference Include="..\Dihydrogen_Monoxide\Dihydrogen_Monoxide.csproj">
+      <ReferenceOutputAssembly>True</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>

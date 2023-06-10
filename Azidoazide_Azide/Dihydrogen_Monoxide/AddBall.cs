@@ -24,5 +24,11 @@ namespace Dihydrogen_Monoxide
 
             return 0;
         }
+
+        public void Print()
+        {
+
+        }
+
     }
 }

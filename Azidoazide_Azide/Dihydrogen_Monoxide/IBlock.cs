@@ -11,7 +11,7 @@ namespace Dihydrogen_Monoxide
     {
         public int Colision(Vector2 bal, int bal_rad);
 
-
+        public void Print();
 
 
     }
